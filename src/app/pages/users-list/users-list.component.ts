@@ -12,7 +12,7 @@ import { UserCardComponent } from '../../components/user-card/user-card.componen
 })
 export class UsersListComponent {
   usersServices = inject(UsersService)
-  arrUsers  = [];
+  arrUsers: IUser[]  = [];
 
  // async ngOnInit(): Promise<void>{
  //   this.arrUsers = await this.usersServices.getAllPromises()
