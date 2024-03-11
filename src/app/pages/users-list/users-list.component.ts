@@ -13,15 +13,18 @@ import { UserCardComponent } from '../../components/user-card/user-card.componen
 export class UsersListComponent {
   usersServices = inject(UsersService)
   arrUsers: IUser[]  = [];
+  response: any = []
 
  // async ngOnInit(): Promise<void>{
  //   this.arrUsers = await this.usersServices.getAllPromises()
  // }
   ngOnInit(): void {
     this.usersServices.getAll().subscribe((data:IUser[]) => {
-      this.arrUsers = data;
+      this.response = data;
       console.log(this.arrUsers)
+      this.arrUsers= this.response.results
     })
+
   }
 
 
