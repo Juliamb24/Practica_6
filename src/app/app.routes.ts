@@ -7,5 +7,5 @@ import { UserViewComponent } from './pages/user-view/user-view.component';
 export const routes: Routes = [
     {path: "", pathMatch: "full", redirectTo: "home" },
     {path: "home", component: UsersListComponent },
-    {path: "user/:id", component: UserViewComponent}
+    {path: "user/:iduser", component: UserViewComponent}
 ];
