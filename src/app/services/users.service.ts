@@ -9,7 +9,9 @@ import { Observable, lastValueFrom } from 'rxjs';
 export class UsersService {
 
   httpClient = inject(HttpClient)
-  baseUrl = 'https://peticiones.online/api/users' 
+  page: number = 1
+  baseUrl = `https://peticiones.online/api/users?page=${this.page}`
+  
   
 
   getAll(): Observable<IUser[]> {
