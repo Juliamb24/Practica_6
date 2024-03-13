@@ -1,1 +1,9 @@
-<p>btn works!</p>
+<div class="d-flex  gap-2 justify-content-center mt-5">
+    @if (container === 'card') {
+        <a class="btn btn-secondary" [routerLink]="['/user', idUser]">Detalle</a>
+    }@else if (container === 'view') {
+        <a class="btn btn-secondary" [routerLink]="['/home']">Volver</a>
+    }
+    <a class="btn btn-secondary" [routerLink]="['/updateuser/user', idUser]">Actualizar</a>
+    <button class="btn btn-secondary" (click)="borrarUser('idUser')">Borrar</button>
+</div>

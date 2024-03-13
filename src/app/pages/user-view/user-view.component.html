@@ -1,9 +1,9 @@
 
 <div class="card mb-3 shadow" >
     <div class="row g-0">
-      <div class="col-md-3">
-        <img [src]="unUser.image" class="img-fluid col-md-10 align-items-center rounded-start shadow" [alt]="unUser.username">
-      </div>
+      <figure class=" col-md-4 mt-3">
+        <img [src]="unUser.image" class=" col-md-10 rounded-start shadow" [alt]="unUser.username">
+      </figure>
       <div class="col-md-8">
         <div class="card-body">
           <div class="text-center h1 mt-2">
@@ -11,9 +11,9 @@
             <span class="card-title"> {{unUser.last_name}}</span>
           </div>
           <hr>
-          <p class="card-text display-6"><b>Nombre Usuario:</b>  {{unUser.username}}</p>
-          <p class="card-text display-6"><b>Email:</b> {{unUser.email}}</p>
-          <a [routerLink]="['/home']" class="btn btn-secondary">Volver al listado</a>
+          <p class="card-text"><b>Nombre Usuario:</b>  {{unUser.username}}</p>
+          <p class="card-text"><b>Email:</b> {{unUser.email}}</p>
+          <app-btn [container]="'view'" [idUser]="unUser._id"></app-btn>
         </div>
       </div>
     </div>
