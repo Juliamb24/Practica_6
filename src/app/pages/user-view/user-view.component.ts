@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IUser } from '../../interfaces/iuser.interface';
 import { UsersService } from '../../services/users.service';
+import { IUser } from '../../interfaces/iuser.interface';
 
 @Component({
   selector: 'app-user-view',
@@ -17,15 +17,17 @@ export class UserViewComponent {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(async(params:any) =>{
-      const id= params.iduser
+      const id= params.iduser;
        try {
-        this.unUser = await this.usersService.getById(id)
+        let response:any = await this.usersService.getById(id);
+        this.unUser = response;
+        console.log(this.unUser)
+        console.log(response)
+        console.log(params)
       }catch(error){
         console.log(error)
       }
       
+      
     })
-  }
-
-
-}
+  }}

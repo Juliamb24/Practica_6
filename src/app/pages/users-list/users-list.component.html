@@ -1,5 +1,5 @@
 <div class="row">
-    @for (user of arrUsers; track user.id) {
+    @for (user of arrUsers; track user._id) {
         <article class="col-12 col-md-4 mb-4">
             <app-user-card [miUser]="user"></app-user-card>
         </article>

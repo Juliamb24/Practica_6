@@ -9,21 +9,22 @@ import { Observable, lastValueFrom } from 'rxjs';
 export class UsersService {
 
   httpClient = inject(HttpClient)
-  page: number = 1
-  baseUrl = `https://peticiones.online/api/users?page=${this.page}`
+  baseUrl = `https://peticiones.online/api/users`
   
   
 
-  getAll(): Observable<IUser[]> {
-    return this.httpClient.get<IUser[]>(this.baseUrl)
+  getAll(page: number): Observable<IUser[]> {
+    const url = `${this.baseUrl}?page=${page}`
+    return this.httpClient.get<IUser[]>(url)
   }
 
-  getAllPromises(): Promise<IUser[]>{
-    return lastValueFrom(this.httpClient.get<IUser[]>(this.baseUrl))
+  getAllPromises(page: number): Promise<IUser[]>{
+    const url = `${this.baseUrl}?page=${page}`
+    return lastValueFrom(this.httpClient.get<IUser[]>(url))
   }
 
   getById(id:string): Promise<IUser> {
-    return lastValueFrom(this.httpClient.get<IUser>(`${this.baseUrl}/&{id}`))
+    return lastValueFrom(this.httpClient.get<IUser>(`${this.baseUrl}/${id}`))
   }
 
 }

@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { IUser } from '../../interfaces/iuser.interface';
 import { UserCardComponent } from '../../components/user-card/user-card.component';
-import { Ipage } from '../../interfaces/ipage';
+
 
 @Component({
   selector: 'app-users-list',
@@ -14,14 +14,23 @@ import { Ipage } from '../../interfaces/ipage';
 export class UsersListComponent {
   usersServices = inject(UsersService);
 
-  arrUsers: IUser[] = [];  
+  arrUsers: IUser[] = [];
+  page: number = 1
 
-  ngOnInit() {
-      this.usersServices.getAll().subscribe((data:any) => {
-          this.arrUsers = data.results;
-      });
+  async ngOnInit(): Promise<void> {
+  //    this.usersServices.getAll().subscribe((data:any) => {
+  //        this.arrUsers = data.results;
+  // });
+    try{
+      let response:any = await this.usersServices.getAllPromises(this.page)
+     this.arrUsers = response.results;
+     console.log(this.arrUsers)
+    }catch(err){
+       console.log(err)
+    }
+   
   }
 
-
-
 }
+
+
