@@ -1,18 +1,19 @@
 
 <div class="card mb-3 shadow" >
     <div class="row g-0">
-      <div class="col-md-4">
-        <img [src]="unUser.image" class="img-fluid rounded-start shadow" [alt]="unUser.username">
+      <div class="col-md-3">
+        <img [src]="unUser.image" class="img-fluid col-md-10 align-items-center rounded-start shadow" [alt]="unUser.username">
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <div class="text-center h1 mt-2">
             <span class="card-title">{{unUser.first_name}}</span>
-            <span class="card-title">{{unUser.last_name}}</span>
+            <span class="card-title"> {{unUser.last_name}}</span>
           </div>
           <hr>
-          <p class="card-text display-6">Nombre Usuario: {{unUser.username}}</p>
-          <p class="card-text display-6">Email: {{unUser.email}}</p>
+          <p class="card-text display-6"><b>Nombre Usuario:</b>  {{unUser.username}}</p>
+          <p class="card-text display-6"><b>Email:</b> {{unUser.email}}</p>
+          <a [routerLink]="['/home']" class="btn btn-secondary">Volver al listado</a>
         </div>
       </div>
     </div>
