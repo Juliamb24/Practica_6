@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-btn',
@@ -11,10 +12,18 @@ import { RouterLink } from '@angular/router';
 export class BtnComponent {
   @Input() container:string = "";
   @Input() idUser:string = "";
+  usersService = inject(UsersService)
+  
 
-  borrarUser(id: string){
-    let response = confirm('¿Deseas eliminar al usuario con id ' + this.idUser)
-    console.log(response)
+  async borrarUser(id: string){
+    id = this.idUser 
+    let confirmacion = confirm('¿Deseas eliminar al usuario con id ' + this.idUser)
+    if(confirmacion){
+      let response = await this.usersService.delete(id);
+      if(response._id){
+        alert('Se ha borrado el usuario ' + response.first_name + ' ' + response.last_name + 'con éxito')
+      }
+    }
   }
 
 
