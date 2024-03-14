@@ -9,5 +9,7 @@ export const routes: Routes = [
     {path: "", pathMatch: "full", redirectTo: "home" },
     {path: "home", component: UsersListComponent },
     {path: "user/:iduser", component: UserViewComponent},
-    {path: "nuevo/user", component: FormComponent}
+    {path: "newuser", component: FormComponent},
+    {path: "updateuser/:id", component: FormComponent}
+
 ];
