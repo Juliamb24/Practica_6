@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-form',
@@ -11,6 +12,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class FormComponent {
   tipo: string = "NUEVO";
   usersForm: FormGroup;
+  usersService = inject(UsersService)
 
 
   constructor(){
@@ -39,12 +41,26 @@ export class FormComponent {
     },[])
   }
 
-  getDataForm(){
-    console.log(this.usersForm.value),
+  async getDataForm(): Promise<void>{
+    let response: any;
+    console.log(this.usersForm.value);
+    console.log(response);
+    try{
+      let response:any;
+      response = await this.usersService.createUser(this.usersForm.value);
+      console.log(response);
+    }catch (err){
+      alert('error');
+    }
+    
+
     this.usersForm.reset()
   }
 
   checkControl(formControlName: string, validador: string): boolean | undefined {
     return this.usersForm.get(formControlName)?.hasError(validador) && this.usersForm.get(formControlName)?.touched
   }
+
+
+  
 }
