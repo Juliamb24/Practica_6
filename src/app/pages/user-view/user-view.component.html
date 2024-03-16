@@ -11,8 +11,10 @@
             <span class="card-title"> {{unUser.last_name}}</span>
           </div>
           <hr>
-          <p class="card-text"><b>Nombre Usuario:</b>  {{unUser.username}}</p>
+          <div class="mt-4">
+          <p class="card-text"><b>Nombre de Usuario:</b>  {{unUser.username}}</p>
           <p class="card-text"><b>Email:</b> {{unUser.email}}</p>
+          </div>
           <app-btn [container]="'view'" [idUser]="unUser._id"></app-btn>
         </div>
       </div>
