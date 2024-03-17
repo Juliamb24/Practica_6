@@ -48,8 +48,9 @@ export class FormComponent {
   ngOnInit(){
     this.activatedRoute.params.subscribe(async(params:any) =>{
       if(params.id){
-        const response = await this.usersService.getById(params.id)
-        
+        const response = await this.usersService.getById(params.id);
+        this.tipo = "ACTUALIZAR";
+
 
         this.usersForm = new FormGroup({
           _id: new FormControl(response._id),
@@ -84,6 +85,7 @@ export class FormComponent {
 
   async getDataForm(): Promise<void>{
     if(this.usersForm.value._id){
+      
       let response = await this.usersService.update(this.usersForm.value);
       if(response.id){
         alert('Usuario actualizado correctamente')

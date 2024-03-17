@@ -10,3 +10,7 @@ input.ng-valid.ng-touched{
     font-size: 90%;
     margin: 0 0 0 10px;
 }
+
+.estado{
+    display: none;
+}

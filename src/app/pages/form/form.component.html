@@ -1,7 +1,7 @@
 <section>
-    <h2>{{tipo}} USUARIO</h2>
+    <h2 class="text-center">{{tipo}} USUARIO</h2>
     <hr>
-    <p>{{usersForm.valid}}</p>
+    <p class="estado">{{usersForm.valid}}</p>
     <form [formGroup]="usersForm" (ngSubmit)="getDataForm()">
         <div class="my-2">
             <label class="form-label" for="first_name">Nombre:</label>

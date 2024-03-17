@@ -4,6 +4,7 @@
     }@else if (container === 'view') {
         <a class="btn btn-secondary" [routerLink]="['/home']">Volver</a>
     }
+    
     <a class="btn btn-secondary" [routerLink]="['/updateuser', idUser]">Actualizar</a>
     <button class="btn btn-secondary" (click)="borrarUser('idUser')">Borrar</button>
 </div>
