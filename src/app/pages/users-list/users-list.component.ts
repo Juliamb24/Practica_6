@@ -19,9 +19,6 @@ export class UsersListComponent {
   page: number = 1
 
   async ngOnInit(): Promise<void> {
-  //    this.usersServices.getAll().subscribe((data:any) => {
-  //        this.arrUsers = data.results;
-  // });
     try{
       let response:any = await this.usersServices.getAllPromises(this.page)
      this.arrUsers = response.results;
