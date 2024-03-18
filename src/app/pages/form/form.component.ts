@@ -1,7 +1,8 @@
 import { Component, Inject, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-form',
@@ -36,17 +37,26 @@ export class FormComponent {
         Validators.required,
       ]),
       email: new FormControl('',[
-        Validators.pattern(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/),
+        Validators.pattern(/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/),
       ]),
       password: new FormControl('',[
-        Validators.required,
+    
       ]),
-      repassword: new FormControl('',[
-        Validators.required,
-      ]),
-    },[])
+      repassword: new FormControl('',[]),
+    },[this.checkpassword]);
   }
+  checkpassword(formValue: AbstractControl): any {
+    const password = formValue.get('password')?.value;
+    const repassword = formValue.get('repassword')?.value;
+    if(password !== repassword){
+      return {'checkpassword': true}
+    }else {
+      return null
+    }
+    
 
+  }
+  
 
   ngOnInit(){
     this.activatedRoute.params.subscribe(async(params:any) =>{
@@ -73,18 +83,18 @@ export class FormComponent {
             Validators.required,
           ]),
           email: new FormControl(response.email,[
-            Validators.pattern(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/),
+            Validators.pattern(/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/),
           ]),
           password: new FormControl(response.password,[
-            Validators.required,
+    
           ]),
-          repassword: new FormControl(response.password,[
-            Validators.required,
-          ]),
-        },[])
+          repassword: new FormControl(response.password,[]),
+        },[this.checkpassword]);
       }
-    })
 
+    });
+ 
+    
     
   }
 
@@ -95,6 +105,7 @@ export class FormComponent {
       let response = await this.usersService.update(this.usersForm.value);
       if(response.id){
         alert('Usuario actualizado correctamente')
+    
         this.router.navigate(['/home'])
       }else{
         alert('Error al actualizar usuario')

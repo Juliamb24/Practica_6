@@ -53,17 +53,16 @@
         <div class="my-2">
             <label class="form-label" for="password">Contraseña:</label>
             <input class="form-control" type="password" id="password" placeholder="Password" formControlName="password">
-            @if(checkControl('password','required')){
-                <p class="error">Campo requerido.</p>
-            }
+       
         </div>
         <div class="my-2">
             <label class="form-label" for="repassword">Repetir contraseña:</label>
             <input class="form-control" type="password" id="repassword" placeholder="Password" formControlName="repassword">
-            @if(checkControl('repassword','required')){
-                <p class="error">Campo requerido.</p>
-            }
+          
         </div>
+        @if (usersForm.hasError('checkpassword')) {
+            <p class="error">La contraseña no coincide</p>
+        }
         <input type="submit" value="{{btn}}" class="btn btn-dark mt-4" [disabled]="!usersForm.valid">
     </form>
     
