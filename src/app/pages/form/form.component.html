@@ -28,8 +28,11 @@
             }
         </div>
         <div class="my-2">
-            <label class="form-label" for="image">URL imagen de perfil*</label>
+            <label class="form-label" for="image">URL imagen de perfil</label>
             <input class="form-control" type="text" id="image" placeholder="Imagen" formControlName="image">
+            @if(checkControl('image','required')){
+                <p class="error">Campo requerido.</p>
+            }
         </div>
         <div class="my-2">
             <label class="form-label" for="username">Nombre de Usuario:</label>
@@ -61,7 +64,8 @@
                 <p class="error">Campo requerido.</p>
             }
         </div>
-        <input type="submit" value="Enviar" class="btn btn-dark mt-4" [disabled]="!usersForm.valid">
+        <input type="submit" value="{{btn}}" class="btn btn-dark mt-4" [disabled]="!usersForm.valid">
     </form>
-    <p class="mt-4">Los campos marcados con * son de caracter opcional.</p>
+    
 </section>
+

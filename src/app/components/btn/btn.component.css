@@ -1,0 +1,8 @@
+.iconos{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    gap: 25px;
+    padding-top: 20px;
+
+}

@@ -1,0 +1,19 @@
+figure {
+    margin: auto;
+    border-radius: 100%;
+}
+figure img{
+    border-radius: 100%;
+}
+
+.container{
+    width: 100%;
+    padding: 20px;
+}
+
+.texto{
+    min-height: 250px;
+
+    padding: 90px 0 0 20px ;
+    font-size: 1.5rem;
+}

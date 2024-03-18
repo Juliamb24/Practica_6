@@ -1,17 +1,17 @@
 
-<div class="card mb-3 shadow" >
+<div class="container card mb-3 shadow col-md-8" >
     <div class="row g-0">
-      <figure class=" col-md-4 mt-3">
-        <img [src]="unUser.image" class="mx-4 col-md-10 rounded-start shadow" [alt]="unUser.username">
+      <figure class=" col-md-5">
+        <img [src]="unUser.image" class="mx-4 col-md-10  shadow" [alt]="unUser.username">
       </figure>
-      <div class="col-md-8">
+      <div class="col-md-7">
         <div class="card-body">
           <div class="text-center h1 mt-2">
             <span class="card-title">{{unUser.first_name}}</span>
             <span class="card-title"> {{unUser.last_name}}</span>
           </div>
           <hr>
-          <div class="mt-4">
+          <div class="texto">
           <p class="card-text"><b>Nombre de Usuario:</b>  {{unUser.username}}</p>
           <p class="card-text"><b>Email:</b> {{unUser.email}}</p>
           </div>

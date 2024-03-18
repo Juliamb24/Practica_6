@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FormComponent {
   tipo: string = "NUEVO";
+  btn: string = "Enviar";
   usersForm: FormGroup;
   usersService = inject(UsersService);
   router = inject(Router);
@@ -31,7 +32,9 @@ export class FormComponent {
       username: new FormControl('',[
         Validators.required,
       ]),
-      image: new FormControl('',[]),
+      image: new FormControl('',[
+        Validators.required,
+      ]),
       email: new FormControl('',[
         Validators.pattern(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/),
       ]),
@@ -50,6 +53,7 @@ export class FormComponent {
       if(params.id){
         const response = await this.usersService.getById(params.id);
         this.tipo = "ACTUALIZAR";
+        this.btn = "Actualizar"
 
 
         this.usersForm = new FormGroup({
@@ -65,7 +69,9 @@ export class FormComponent {
           username: new FormControl(response.username,[
             Validators.required,
           ]),
-          image: new FormControl(response.image,[]),
+          image: new FormControl(response.image,[
+            Validators.required,
+          ]),
           email: new FormControl(response.email,[
             Validators.pattern(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/),
           ]),

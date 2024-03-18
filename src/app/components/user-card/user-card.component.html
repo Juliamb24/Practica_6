@@ -1,9 +1,9 @@
 <div class="card border-dark mb-3 " style="width: 18rem;">
     <img [src] ="miUser.image" class="img-fluid rounded-start" [alt]="miUser.username">
     <div class="card-body">
-      <h4 class="card-title">{{miUser.first_name}}</h4>
-      <h5 class="card-title">{{miUser.last_name}}</h5>
-      <p class="card-text">&#64;{{miUser.username}}</p>
+      <h4 class="card-title text-center">{{miUser.first_name}}</h4>
+      <h5 class="card-title text-center">{{miUser.last_name}}</h5>
+   
       <app-btn [container]="'card'" [idUser]="miUser._id"></app-btn>
     </div>
   </div>
