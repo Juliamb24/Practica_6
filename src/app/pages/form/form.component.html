@@ -45,6 +45,9 @@
         <div class="my-2">
             <label class="form-label" for="email">Email:</label>
             <input class="form-control" type="email" id="email" placeholder="Email" formControlName="email">
+            @if(checkControl('email','required')){
+                <p class="error">Campo requerido.</p>
+            }
             @if(checkControl('email','pattern')){
                 <p class="error">Introduce un email válido.</p>
             }
@@ -52,12 +55,12 @@
         </div>
         <div class="my-2">
             <label class="form-label" for="password">Contraseña:</label>
-            <input class="form-control" type="password" id="password" placeholder="Password" formControlName="password">
+            <input class="form-control" type="password" id="password" placeholder="Password" formControlName="password" [class.invalid]="checkControl('password', 'checkpassword')">
        
         </div>
         <div class="my-2">
             <label class="form-label" for="repassword">Repetir contraseña:</label>
-            <input class="form-control" type="password" id="repassword" placeholder="Password" formControlName="repassword">
+            <input class="form-control" type="password" id="repassword" placeholder="Password" formControlName="repassword" [class.invalid]="checkControl('password', 'checkpassword')">
           
         </div>
         @if (usersForm.hasError('checkpassword')) {

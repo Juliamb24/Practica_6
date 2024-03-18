@@ -1,9 +1,7 @@
 input.ng-invalid.ng-touched{
     border-bottom: 2px solid rgb(255, 0, 0);
 }
-input.ng-valid.ng-touched{
-    border-bottom: 2px solid lightgreen;
-}
+
 
 .error{
     color: red;
@@ -15,3 +13,6 @@ input.ng-valid.ng-touched{
     display: none;
 }
 
+.invalid {
+    border-color: red !important;
+}

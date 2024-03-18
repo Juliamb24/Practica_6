@@ -37,6 +37,7 @@ export class FormComponent {
         Validators.required,
       ]),
       email: new FormControl('',[
+        Validators.required,
         Validators.pattern(/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/),
       ]),
       password: new FormControl('',[
@@ -83,6 +84,7 @@ export class FormComponent {
             Validators.required,
           ]),
           email: new FormControl(response.email,[
+            Validators.required,
             Validators.pattern(/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/),
           ]),
           password: new FormControl(response.password,[
